@@ -1,3 +1,4 @@
+using System;
 using System.Configuration;
 
 using Microsoft.WindowsAzure.Storage;
@@ -17,7 +18,10 @@ namespace Storage.Command
             {
                 if (_table == null)
                 {
-                    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+                    var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE",
+                        EnvironmentVariableTarget.Machine);
+
+                    var storageAccount = CloudStorageAccount.Parse(connectionString);
                     var client = storageAccount.CreateCloudTableClient();
 
                     _table = client.GetTableReference("orders");

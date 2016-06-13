@@ -10,11 +10,11 @@ namespace Storage.Command
 
             //command = new BlobCommand();
             //command = new SingleInsertTableCommand();
-            command = new BatchInsertTableCommand();
+            //command = new BatchInsertTableCommand();
             //command = new UpdateTableCommand();
             //command = new DeleteTableCommand();
             
-            command.Execute();
+            //command.Execute();
             command = new GetTableCommand();
             command.Execute();
 
