@@ -6,16 +6,24 @@ namespace Storage.Command
     {
         static void Main(string[] args)
         {
-            TableCommand command;
+            //TableCommand command;
 
             //command = new BlobCommand();
             //command = new SingleInsertTableCommand();
             //command = new BatchInsertTableCommand();
             //command = new UpdateTableCommand();
             //command = new DeleteTableCommand();
-            
+
             //command.Execute();
-            command = new GetTableCommand();
+            //command = new GetTableCommand();
+            //command.Execute();
+
+            QueueCommand command;
+            command = new AddMessagesToQueue();
+            command.Execute();
+
+            //command = new GetMessagesSeriallyCommand();
+            command = new GetMessagesInParallelCommand();
             command.Execute();
 
             Console.WriteLine("Hit any key to end.");

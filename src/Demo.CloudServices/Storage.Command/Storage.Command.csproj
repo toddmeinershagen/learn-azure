@@ -72,13 +72,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMessagesToQueue.cs" />
     <Compile Include="BatchInsertTableCommand.cs" />
     <Compile Include="BlobCommand.cs" />
     <Compile Include="DeleteTableCommand.cs" />
+    <Compile Include="GetMessagesInParallelCommand.cs" />
+    <Compile Include="GetMessagesInSerialCommand.cs" />
     <Compile Include="GetTableCommand.cs" />
     <Compile Include="OrderEntity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueCommand.cs" />
     <Compile Include="SingleInsertTableCommand.cs" />
     <Compile Include="TableCommand.cs" />
     <Compile Include="UpdateTableCommand.cs" />
