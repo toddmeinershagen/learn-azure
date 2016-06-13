@@ -1,15 +1,10 @@
-using System;
-
-using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 
 namespace Storage.Command
 {
-    public abstract class QueueCommand
+    public abstract class QueueCommand : Command
     {
         private CloudQueue _queue = null;
-
-        public abstract void Execute();
 
         protected CloudQueue WorkerQueue
         {
@@ -17,11 +12,7 @@ namespace Storage.Command
             {
                 if (_queue == null)
                 {
-                    var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE",
-                        EnvironmentVariableTarget.Machine);
-
-                    var storageAccount = CloudStorageAccount.Parse(connectionString);
-                    var client = storageAccount.CreateCloudQueueClient();
+                    var client = Account.CreateCloudQueueClient();
 
                     _queue = client.GetQueueReference("worker");
                     _queue.CreateIfNotExists();

@@ -1,16 +1,12 @@
-using System;
 using System.Configuration;
 
-using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Storage.Command
 {
-    public abstract class TableCommand
+    public abstract class TableCommand : Command
     {
         private CloudTable _table = null;
-
-        public abstract void Execute();
 
         protected CloudTable Table
         {
@@ -18,11 +14,7 @@ namespace Storage.Command
             {
                 if (_table == null)
                 {
-                    var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE",
-                        EnvironmentVariableTarget.Machine);
-
-                    var storageAccount = CloudStorageAccount.Parse(connectionString);
-                    var client = storageAccount.CreateCloudTableClient();
+                    var client = Account.CreateCloudTableClient();
 
                     _table = client.GetTableReference("orders");
                     _table.CreateIfNotExists();

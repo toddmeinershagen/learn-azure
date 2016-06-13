@@ -75,6 +75,9 @@
     <Compile Include="AddMessagesToQueue.cs" />
     <Compile Include="BatchInsertTableCommand.cs" />
     <Compile Include="BlobCommand.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="ProduceSASTokenForBlob.cs" />
+    <Compile Include="UpdateBlobMetadataCommand.cs" />
     <Compile Include="DeleteTableCommand.cs" />
     <Compile Include="GetMessagesInParallelCommand.cs" />
     <Compile Include="GetMessagesInSerialCommand.cs" />
